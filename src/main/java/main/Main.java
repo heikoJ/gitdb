@@ -25,6 +25,6 @@ public class Main  extends Application {
         ScreensConfig screens = context.getBean(ScreensConfig.class);
         screens.setPrimaryStage(primaryStage);
         screens.showMainScreen();
-        screens.loadFirst();
+        screens.loadMain();
     }
 }

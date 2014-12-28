@@ -7,7 +7,7 @@
 <?import javafx.scene.paint.*?>
 <?import javafx.scene.text.*?>
 
-<VBox prefHeight="400.0" prefWidth="640.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+<VBox prefHeight="400.0" prefWidth="640.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="main.MainController">
   <children>
     <MenuBar VBox.vgrow="NEVER">
       <menus>
@@ -22,6 +22,7 @@
             <MenuItem mnemonicParsing="false" text="Save As…" />
             <MenuItem mnemonicParsing="false" text="Revert" />
             <SeparatorMenuItem mnemonicParsing="false" />
+            <MenuItem mnemonicParsing="false" text="Preferences…" />
             <MenuItem mnemonicParsing="false" text="Preferences…" />
             <SeparatorMenuItem mnemonicParsing="false" />
             <MenuItem mnemonicParsing="false" text="Quit" />
@@ -50,12 +51,37 @@
     </MenuBar>
     <AnchorPane maxHeight="-1.0" maxWidth="-1.0" prefHeight="-1.0" prefWidth="-1.0" VBox.vgrow="ALWAYS">
       <children>
-            <HBox maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="371.0" prefWidth="640.0">
-               <children>
-                  <TreeView prefHeight="200.0" prefWidth="200.0" />
-                  <TextArea maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="371.0" prefWidth="483.0" />
-               </children>
-            </HBox>
+            <BorderPane prefHeight="800.0" prefWidth="1000.0">
+               <top>
+                  <VBox prefHeight="20.0" prefWidth="1000.0" BorderPane.alignment="TOP_LEFT">
+                     <children>
+                        <ComboBox fx:id="cbDatabaseConnection" editable="true" prefHeight="26.0" prefWidth="509.0" promptText="Datbase Connection" />
+                        <ComboBox fx:id="cbGitRepositoryPath" editable="true" prefHeight="26.0" prefWidth="508.0" promptText="Local Git Repository" />
+                     </children>
+                  </VBox>
+               </top>
+               <center>
+                  <SplitPane dividerPositions="0.29797979797979796" prefHeight="160.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+                    <items>
+                      <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
+                           <children>
+                              <TreeView fx:id="tvFolders" layoutX="-3.0" prefHeight="800.0" prefWidth="300.0" />
+                           </children>
+                        </AnchorPane>
+                      <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
+                           <children>
+                              <TableView fx:id="tvFiles" prefHeight="800.0" prefWidth="400.0">
+                                <columns>
+                                  <TableColumn prefWidth="75.0" text="C1" />
+                                  <TableColumn prefWidth="75.0" text="C2" />
+                                </columns>
+                              </TableView>
+                           </children>
+                        </AnchorPane>
+                    </items>
+                  </SplitPane>
+               </center>
+            </BorderPane>
       </children>
     </AnchorPane>
   </children>

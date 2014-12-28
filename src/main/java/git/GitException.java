@@ -1,0 +1,25 @@
+package git;
+
+/**
+ * Created by heiko on 15.12.14.
+ */
+public class GitException extends RuntimeException {
+    public GitException() {
+    }
+
+    public GitException(String message) {
+        super(message);
+    }
+
+    public GitException(String message, Throwable cause) {
+        super(message, cause);
+    }
+
+    public GitException(Throwable cause) {
+        super(cause);
+    }
+
+    public GitException(String message, Throwable cause, boolean enableSuppression, boolean writableStackTrace) {
+        super(message, cause, enableSuppression, writableStackTrace);
+    }
+}
